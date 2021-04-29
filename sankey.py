@@ -26,7 +26,32 @@ class Sankey:
       colour_list[self.labels.index(key)] = value
     self.colours = colour_list
 
-  def render(self):
+  def validate(self):
+    # For each non-starting and non-terminating node, ensure that the input in is equal to the input out
+    label_range = range(len(self.labels))
+    start_nodes = set(label_range)
+    end_nodes = set(label_range)
+
+    sums = [0] * len(self.labels)
+    for i in label_range:
+      value = self.edge_values[i]
+      source = self.source_nodes[i]
+      target = self.target_nodes[i]
+
+      sums[source] -= value
+      if source in end_nodes:
+        end_nodes.remove(source)
+
+      sums[self.target_nodes[target]] += value
+      if target in start_nodes:
+        start_nodes.remove(target)
+
+    for i in label_range:
+      if sums[i] != 0.00 and not (i in start_nodes or i in end_nodes):
+        print(f'{self.labels[i]} is unbalanced: {sums[i]}')
+
+
+  def render(self, title):
     labels_list = []
     for label in self.labels:
       labels_list.append(label)
@@ -46,5 +71,10 @@ class Sankey:
     )
     )])
 
-    figure.update_layout(title_text="Basic Sankey Diagram", font_size=10)
+    figure.update_layout(
+      title_text=title,
+      font_size=12,
+      width=1500,
+      height=1000,
+    )
     figure.show()
