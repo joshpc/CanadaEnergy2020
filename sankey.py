@@ -33,7 +33,7 @@ class Sankey:
     end_nodes = set(label_range)
 
     sums = [0] * len(self.labels)
-    for i in label_range:
+    for i in range(len(self.source_nodes)):
       value = self.edge_values[i]
       source = self.source_nodes[i]
       target = self.target_nodes[i]
@@ -42,7 +42,7 @@ class Sankey:
       if source in end_nodes:
         end_nodes.remove(source)
 
-      sums[self.target_nodes[target]] += value
+      sums[target] += value
       if target in start_nodes:
         start_nodes.remove(target)
 
