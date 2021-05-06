@@ -47,7 +47,7 @@ class Sankey:
         start_nodes.remove(target)
 
     for i in label_range:
-      if sums[i] != 0.00 and not (i in start_nodes or i in end_nodes):
+      if abs(sums[i]) > 0.01 and not (i in start_nodes or i in end_nodes):
         print(f'{self.labels[i]} is unbalanced: {sums[i]}')
 
 
