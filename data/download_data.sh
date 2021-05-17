@@ -58,3 +58,4 @@ download_file "cer-end-use-demand-2020.csv" "https://www.cer-rec.gc.ca/open/ener
 # Electric power generation, monthly generation by type of electricity
 # https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2510001501&pickMembers%5B0%5D=1.1&pickMembers%5B1%5D=2.1&cubeTimeFrame.startMonth=01&cubeTimeFrame.startYear=2020&cubeTimeFrame.endMonth=12&cubeTimeFrame.endYear=2020&referencePeriods=20200101%2C20201201
 download_file "statscan-electric-power-generation-2020.csv" "https://www150.statcan.gc.ca/t1/tbl1/en/dtl!downloadDbLoadingData-nonTraduit.action?pid=2510001501&latestN=0&startDate=20200101&endDate=20201201&csvLocale=en&selectedMembers=%5B%5B1%5D%2C%5B1%5D%2C%5B1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%5D%5D"
+
