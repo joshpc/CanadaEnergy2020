@@ -74,7 +74,7 @@ class Sankey:
     figure.update_layout(
       title_text=title,
       font_size=12,
-      width=1500,
-      height=1000,
+      width=2000,
+      height=1500,
     )
     figure.show()
