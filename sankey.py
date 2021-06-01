@@ -51,7 +51,7 @@ class Sankey:
         print(f'{self.labels[i]} is unbalanced: {sums[i]}')
 
 
-  def render(self, title):
+  def render(self, title, width=2000, height=1500, font_size=12):
     labels_list = []
     for label in self.labels:
       labels_list.append(label)
@@ -73,8 +73,8 @@ class Sankey:
 
     figure.update_layout(
       title_text=title,
-      font_size=12,
-      width=2000,
-      height=1500,
+      font_size=font_size,
+      width=width,
+      height=height,
     )
     figure.show()
